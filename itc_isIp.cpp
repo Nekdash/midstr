@@ -16,14 +16,16 @@ bool itc_isIp(string str){
             res = "";
             counter = 0;
         }
-        if(str[i] > '9' || str[i] < '0' && str[i] != '.')
+        if( !itc_isDigit(str[i]) && str[i] != '.')
             return false;
+        
         if(str[i] != '.'){
             res += str[i];
             counter++;}
+        
         if (counter > 3)
             return false;
-        i++;
+        
     }
     return true;
 
