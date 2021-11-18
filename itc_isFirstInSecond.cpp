@@ -3,15 +3,17 @@
 
 
 bool itc_isFirstInSecond(string s2, string s1){ // наоборот аргументы
-    long long res = -1;
-    for ( int i = 0; i < itc_len(s1); i++){
-        if (itc_slice_str(s1, i, i+itc_len(s2)-1) == s2){ // вырезка на длину искомой строки
-            return true; // если тут - вернуть 1
-            break;
-        }
+    long long c = 0;
+    for ( long long i = 0; i < itc_len(s1); i++){
+        c = 0;
+        if (s1[i] == s2[0]){
+            for ( long long j = 0; j < itc_len(s2); j++){
+                if( str[j] == s1[j+i] )
+                    c++;
+            }
+        }   
     }
-    if ( res == -1)
-        return false;
-    return true;
-
+    if(itc_len(s2) == c)
+        return true;
+    return false;
 }
