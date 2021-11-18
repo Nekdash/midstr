@@ -16,11 +16,8 @@ string itc_num_to_str(long long num){
 string itc_DecToBin(string str){
     string temp = "", temp2 = "";
     long long temp_num = 0;
-
-
     for( long long i = 0; str[i] != '\0'; i++ ){
         if ( str[i] < '0' || str[i] > '9'){
-            
             temp2 += itc_decToBase(str_to_num(temp), 2) + str[i];
             temp = "";
             }
@@ -29,7 +26,7 @@ string itc_DecToBin(string str){
         }
         
     }
-    
+
     temp2 += itc_decToBase(str_to_num(temp), 2);
     return temp2;
 }
