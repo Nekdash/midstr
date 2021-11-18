@@ -1,46 +1,49 @@
 #include "middle_str.h"
 
 string itc_Cezar(string str, int k){
-    long long i = 0;
-int h = 0;
-string new_str = "";
-while(str[i] != '\0'){
+    
+    int temp = 0;
+    string res = "";
+    
+    for ( long long i = 0; str[i] != '\0'; i++){
+        
         if(k >= 0){
         if ((str[i] + k) > 'z'){
-            h = (str[i] + k) - 123;
-            new_str += 'a' + h;
+            temp = (str[i] + k) - 123;
+            res += 'a' + temp;
         }
         else if ((str[i] + k) > 'Z' && (str[i] + k) < 'a'){
-            h = (str[i] + k) - 91;
-            new_str += 'A' + h;
+            temp = (str[i] + k) - 91;
+            res += 'A' + temp;
         }
         else if((str[i] + k) > 'a'&& (str[i] + k) < 'z' || (str[i] + k) < 'Z' && (str[i] + k) > 'A')
-            new_str += str[i] + k;
+            res += str[i] + k;
 
         else
-            new_str += str[i];
+            res += str[i];
 
         }
 
         else if (k < 0){
         if(str[i] < 'a'&& str[i] > 'Z' || str[i] > 'z' || str[i] < 'A')
-            new_str += str[i];
-        else if ((str[i] + k) < 'a'){
-            h = 123 - ('a' - (str[i] + k));
-            new_str += h;
-        }
+            res += str[i];
         else if ((str[i] + k) < 'Z' && (str[i] + k) > 'A'){
-            h = 93 - ('A' - (str[i] + k));
-            new_str += h;
+            temp = 93 - ('A' - (str[i] + k));
+            res += temp;
         }
+        else if ((str[i] + k) < 'a'){
+            temp = 123 - ('a' - (str[i] + k));
+            res += temp;
+        }
+        
         else if((str[i] + k) >= 'a'&& (str[i] + k) < 'z' || (str[i] + k) < 'Z' && (str[i] + k) > 'A')
-            new_str += (str[i] + k);
+            res += (str[i] + k);
 
 
         }
-    i++;
+    
 
 }
-return new_str;
+return res;
 
 }
