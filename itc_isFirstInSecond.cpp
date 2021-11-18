@@ -1,20 +1,20 @@
 #include "middle_str.h"
-bool itc_isFirstInSecond(string s2, string s1){
-  
-  int n1 = itc_len(s1);
-  int n2 = itc_len(s2);
-
-  if (n1 < n2)return false;
-
-  for (int i = 0; i < n1-n2+1; i++){
-    bool check = false;
-    if (s1[i] == s2[0]) {
-      check = true;
-      for (int j = 1; j < n2; j++)
-        if (s1[i + j] != s2[j])check = false;
+bool itc_isFirstInSecond(string str2, string str1){
+    long long len1 = itc_len(str1);
+    long long len2 = itc_len(str2);
+    long long count = 0;
+    for (long long i = 0; i < len1; i++){
+        count = 0;
+        if (str1[i] == str2[0]){
+        for (long long j = 0; j < len2; j++){
+            if (str1[i + j] == str2[j]){
+                count += 1;
+            }
+        }
+        }
+        if (count == len2){
+            return true;
+        }
     }
-
-    if (check)return true;
-  }
-  return false;
+    return false;
 }
