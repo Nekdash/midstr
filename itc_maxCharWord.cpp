@@ -13,31 +13,31 @@ bool word(string str){
 
 string itc_maxCharWord(string str){
     string max = "", temp = "";
-    long long len = 0,  start = 0;
-    bool   check = itc_isFirstInSecond(str, " ");
+    long long s = 0;
+    bool check = itc_isFirstInSecond(str, " ");
     if (!check)
         return "error";
     for ( long long i = 0; str[i] != '\0'; i++){
-        if (str[i] == 32){
-            if (str[i - 1] != 32)
-                temp = itc_slice_str(str, start, i - 1);
-                len = itc_len(temp);
-            if (temp[len - 1] < 65 || (temp[len - 1] > 90 && temp[len - 1] < 97) || temp[len - 1] > 122)
-                temp = itc_slice_str(temp, 0, len - 2);
-                len = itc_len(temp);
-            if (len > itc_len(max) && word(temp) == 1)
+        if (str[i] == ' '){
+            if (str[i - 1] != ' ') // не пробелы подряд
+                temp = itc_slice_str(str, s, i - 1);
+                
+            if (temp[itc_len(temp) - 1] < 'A' || (temp[itc_len(temp) - 1] > 'Z' && temp[itc_len(temp) - 1] < 'a') || temp[itc_len(temp) - 1] >'z')
+                temp = itc_slice_str(temp, 0, itc_len(temp) - 2);
+                
+            if (itc_len(temp) > itc_len(max) && word(temp) == 1)
                 max = temp;
-            start = i + 1;
-            len = 0;
+            s = i + 1;
+            
             temp = "";
             }
         
 
     }
 
-     temp = itc_slice_str(str, start, itc_len(str) - 1);
+     temp = itc_slice_str(str, s, itc_len(str) - 1);
      len = itc_len(temp);
-     if (len > itc_len(max) && word(temp) == 1){
+     if (itc_len(temp) > itc_len(max) && word(temp)){
          max = temp;
     }
     if (max == " ")
