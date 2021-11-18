@@ -1,28 +1,17 @@
 #include "middle_str.h"
 
-long long itc_find_str(string str1, string str2){
+
+
+bool itc_isFirstInSecond(string s2, string s1){ // наоборот аргументы
     long long res = -1;
     for ( int i = 0; i < itc_len(str1); i++){
-        if (itc_slice_str(str1, i, i+itc_len(str2)-1) == str2){
-            res = i;
+        if (itc_slice_str(s1, i, i+itc_len(s2)-1) == s2){
+            return true;
             break;
         }
     }
-    return res;
-
-}
-
-
-
-
-
-bool itc_isFirstInSecond(string s1, string s2){
-    long long res = itc_find_str(s2, s1);
     if ( res == -1)
         return false;
-    
-
-    
     return true;
 
 }
