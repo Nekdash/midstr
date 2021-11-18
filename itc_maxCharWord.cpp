@@ -13,10 +13,11 @@ bool word(string str){
 
 string itc_maxCharWord(string str){
     string max = "", temp = "";
-    long long len = 0, i = 0, start = 0;
-    if (itc_find_str(str, " ") == -1)
+    long long len = 0,  start = 0;
+    bool   check = itc_isFirstInSecond(str, " ");
+    if (!check)
         return "error";
-    while(str[i] != '\0'){
+    for ( long long i = 0; str[i] != '\0'; i++){
         if (str[i] == 32){
             if (str[i - 1] != 32)
                 temp = itc_slice_str(str, start, i - 1);
@@ -30,7 +31,7 @@ string itc_maxCharWord(string str){
             len = 0;
             temp = "";
             }
-        i++;
+        
 
     }
 
