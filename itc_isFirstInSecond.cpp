@@ -8,7 +8,7 @@ bool itc_isFirstInSecond(string s2, string s1){ // наоборот аргуме
         c = 0;
         if (s1[i] == s2[0]){
             for ( long long j = 0; j < itc_len(s2); j++){
-                if( str[j] == s1[j+i] )
+                if( s2[j] == s1[j+i] )
                     c++;
             }
         }   
