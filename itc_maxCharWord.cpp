@@ -14,7 +14,7 @@ bool word(string str){
 string itc_maxCharWord(string str){
     string max = "", temp = "";
     long long s = 0;
-    bool check = itc_isFirstInSecond(str, " ");
+    bool check = itc_isFirstInSecond( " ", str);
     if (!check)
         return "error";
     for ( long long i = 0; str[i] != '\0'; i++){
