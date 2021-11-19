@@ -36,7 +36,7 @@ string itc_maxCharWord(string str){
     }
 
      temp = itc_slice_str(str, s, itc_len(str) - 1);
-     len = itc_len(temp);
+     
      if (itc_len(temp) > itc_len(max) && word(temp)){
          max = temp;
     }
