@@ -5,6 +5,8 @@ bool itc_isFirstInSecond(string str2, string str1){
     long long count = 0;
     if(str2 == "")
         return true;
+    if ( str1 == "")
+        return false;
     for (long long i = 0; i < len1; i++){
         count = 0;
         if (str1[i] == str2[0]){
