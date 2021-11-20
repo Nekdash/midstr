@@ -24,7 +24,7 @@ bool word(string str){
 }
 
 string itc_maxCharWord(string str){
-    //masha one love
+    // amazing
     string max = "", temp = "";
     long long s = 0;
     int check = itc_find_str( str," ");
