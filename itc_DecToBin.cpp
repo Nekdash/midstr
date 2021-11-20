@@ -3,7 +3,7 @@
 
 string itc_num_to_str(long long num){
     char ch = ' ';
-    string str = "", res = "";
+    string str = "";
     while(num > 0){
         ch = (num % 10) + 48;
         str =  ch + str;
