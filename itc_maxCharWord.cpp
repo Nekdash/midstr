@@ -1,5 +1,17 @@
 #include "middle_str.h"
 
+long long itc_find_str(string str1, string str2){
+    long long res = -1;
+    for ( int i = 0; i < itc_len(str1); i++){
+        if (itc_slice_str(str1, i, i+itc_len(str2)-1) == str2){
+            res = i;
+            break;
+        }
+    }
+    return res;
+
+}
+
 bool word(string str){
     long long i = 0;
     bool bol = true;
@@ -14,8 +26,8 @@ bool word(string str){
 string itc_maxCharWord(string str){
     string max = "", temp = "";
     long long s = 0;
-    bool check = itc_isFirstInSecond( " ", str);
-    if (!check)
+    int check = itc_find_str( str," ");
+    if (check == -1)
         return "error";
     for ( long long i = 0; str[i] != '\0'; i++){
         if (str[i] == ' '){
